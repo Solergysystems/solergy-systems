@@ -67,14 +67,23 @@
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
-                  <div>
-                    <h4 class="font-bold text-lg text-gray-900 mb-2">Office Address</h4>
-                    <p class="text-gray-600 leading-relaxed">
-                      Bazar Samiti Road, Near Mahila Thana<br>
-                      Infront of Tathagat Gas Agency<br>
-                      Hajipur, Bihar - 844101
-                    </p>
-                  </div>
+                  <ul class="space-y-5 text-gray-600 leading-relaxed">
+                    <li class="flex gap-3">
+                      <span class="text-red-600">📍</span>
+                      <span>
+                        Plot no D2, Road no 2, Gate no 1, Transport Nagar,<br>
+                        Zero Mile, Patna, Bihar – 800007
+                      </span>
+                    </li>
+
+                    <li class="flex gap-3">
+                      <span class="text-red-600">📍</span>
+                      <span>
+                        Bazar Samiti Road, Near Mahila Thana, In front of<br>
+                        Tathagat Gas Agency, Hajipur, Bihar – 844101
+                      </span>
+                    </li>
+                  </ul>
                 </div>
 
                 <div class="flex items-start gap-4 group/item hover:translate-x-2 transition-transform duration-300">
