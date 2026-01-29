@@ -40,6 +40,25 @@
               </svg>
               <span>solergysystems7@gmail.com</span>
             </a>
+                  <ul class="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors">
+                    <li class="flex gap-3">
+                      <span class="text-red-600">📍</span>
+                      <span>
+                        Plot no D2, Road no 2, Gate no 1, Transport Nagar,<br>
+                        Zero Mile, Patna, Bihar – 800007
+                      </span>
+                    </li>
+                  </ul>
+
+                  <ul class="flex items-center space-x-2 text-gray-400 hover:text-white transition-colors">
+                    <li class="flex gap-3">
+                      <span class="text-red-600">📍</span>
+                      <span>
+                        Bazar Samiti Road, Near Mahila Thana, In front of<br>
+                        Tathagat Gas Agency, Hajipur, Bihar – 844101
+                      </span>
+                    </li>
+                  </ul>
           </div>
         </div>
 
@@ -127,9 +146,6 @@
         <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p class="text-gray-400 text-sm text-center md:text-left">
             © {{ currentYear }} Solergy Systems. All rights reserved.
-          </p>
-          <p class="text-gray-400 text-sm">
-            Bazar Samiti Road, Near Mahila Thana, Infront of Tathagat Gas Agency, Hajipur, Bihar - 844101
           </p>
         </div>
       </div>
