@@ -66,17 +66,48 @@
             </span>
           </NuxtLink>
 
-          <a 
-            href="tel:9973953809" 
-            class="btn bg-white text-primary hover:bg-gray-100 text-lg px-8 py-4 shadow-2xl border-2 border-white transform hover:scale-105 transition-all w-full sm:w-auto"
-          >
-            <span class="flex items-center justify-center space-x-2">
+          <!-- Phone Menu Button -->
+          <div class="hero-phone-menu-container relative w-full sm:w-auto">
+            <button
+              @click="togglePhoneMenu"
+              class="btn bg-white text-primary hover:bg-gray-100 text-lg px-8 py-4 shadow-2xl border-2 border-white transform hover:scale-105 transition-all w-full flex items-center justify-center space-x-2"
+            >
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
-              <span>Call: 9973953809</span>
-            </span>
-          </a>
+              <span>Call Now</span>
+            </button>
+
+            <!-- Phone Menu Dropdown -->
+            <div v-if="showPhoneMenu" class="hero-phone-dropdown">
+              <a
+                href="tel:+919973953809"
+                class="hero-phone-option"
+                @click="showPhoneMenu = false"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                </svg>
+                <div class="ml-3">
+                  <div class="font-semibold text-sm">+91 9973953809</div>
+                  <div class="text-xs opacity-75">Primary</div>
+                </div>
+              </a>
+              <a
+                href="tel:+917763979842"
+                class="hero-phone-option"
+                @click="showPhoneMenu = false"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                </svg>
+                <div class="ml-3">
+                  <div class="font-semibold text-sm">+91 7763979842</div>
+                  <div class="text-xs opacity-75">Alternate</div>
+                </div>
+              </a>
+            </div>
+          </div>
         </div>
 
         <!-- Trust Badge -->
@@ -102,9 +133,25 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
+import { ref } from 'vue'
 
 const images = useImages();
 const modules = [Autoplay, EffectFade];
+const showPhoneMenu = ref(false)
+
+const togglePhoneMenu = () => {
+  showPhoneMenu.value = !showPhoneMenu.value
+}
+
+// Close menu when clicking outside
+if (process.client) {
+  document.addEventListener('click', (e) => {
+    const heroSection = document.querySelector('.hero-phone-menu-container')
+    if (heroSection && !heroSection.contains(e.target as Node)) {
+      showPhoneMenu.value = false
+    }
+  })
+}
 </script>
 
 <style scoped>
@@ -177,5 +224,40 @@ const modules = [Autoplay, EffectFade];
 .hero-image {
   user-select: none;
   -webkit-user-select: none;
+}
+
+/* Hero Phone Menu Styles */
+.hero-phone-menu-container {
+  position: relative;
+}
+
+.hero-phone-dropdown {
+  @apply absolute top-full left-0 mt-2 bg-white rounded-xl shadow-2xl overflow-hidden z-50 w-full sm:w-80;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-phone-option {
+  @apply flex items-center px-4 py-3 hover:bg-primary/10 transition-colors border-b last:border-b-0 cursor-pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.hero-phone-option:hover {
+  @apply bg-primary/10;
+}
+
+.hero-phone-option svg {
+  @apply text-primary flex-shrink-0;
 }
 </style>
