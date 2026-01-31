@@ -27,7 +27,7 @@ export const useImages = () => {
       },
       {
         id: 4,
-        jpg: '/images/4.jpg'
+        jpg: '/images/7.jpg'
       },
       {
         id: 5,
@@ -36,6 +36,14 @@ export const useImages = () => {
       {
         id: 6,
         jpg: '/images/6.jpg'
+      },
+      {
+        id: 7,
+        jpg: '/images/4.jpg'
+      },
+      {
+        id: 8,
+        jpg: '/images/8.jpg'
       }
     ],
 
